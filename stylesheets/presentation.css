@@ -1,0 +1,112 @@
+
+/* Slides
+ ====================================================*/
+body {
+    background: #FFF;
+    font-family: "Source Sans Pro";
+    color: #141414;
+    margin: 0;
+    padding: 0;
+}
+
+section {
+    background-position: center center;
+    background-size: cover;
+    font-size: 3em;
+    width: 100%;
+    display: none;
+}
+
+.bespoke-active {
+    display: table;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+}
+
+.content {
+    display: table-cell;
+    padding: 1em;
+    vertical-align: middle;
+    text-align: center;
+}
+
+
+/* Content styling
+ ====================================================*/
+.bespoke-slide h1,
+.bespoke-slide h2 {
+    margin: 0;
+}
+.bespoke-slide blockquote {
+    font-family: Baskerville;
+    font-style: italic;
+    margin: 0;
+}
+.bespoke-slide blockquote small {
+    margin-top: 1em;
+    display: block;
+    text-align: right;
+}
+.bespoke-slide ul {
+    font-size: 0.8em;
+    text-align: left;
+    display: inline-block;
+    margin: 0 auto;
+    list-style-type: none;
+}
+
+section a {
+    font-weight: 700;
+    color: #0cf;
+    text-decoration: none;
+}
+
+
+/* Live coding
+ ====================================================*/
+.demo {
+    display: table;
+    table-layout: fixed;
+    width: 100%;
+    max-width: 1000px;
+    margin: 1em auto;
+    font-size: 18px;
+}
+
+.demoCode,
+.demoShow {
+    display: table-cell;
+    width: 50%;
+    vertical-align: top;
+}
+
+code.liveCoding {
+    display: block;
+    outline: none;
+}
+
+
+/* Utils for content
+ ====================================================*/
+section .underline {
+    border-bottom: .1em solid white
+}
+
+section .strikethrough {
+    text-decoration: line-through;
+    color: #999
+}
+
+section .classy {
+    font-family: Baskerville;
+    font-style: italic;
+}
+
+section .code {
+    font-family: "Source Code Pro";
+    font-size: .8125em;
+    font-weight: 700;
+    color: #0cf
+}
