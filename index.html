@@ -13,25 +13,40 @@
 </head>
 <body>
 <article>
+
+
     <section>
-        <div class="content">
+        <div class="content content--card">
             <h1>CSS is awesome</h1>
             <small class="classy">and</small>
-            <div>could be complicated</div>
+            <div>often misunderstood</div>
         </div>
     </section>
+
+
     <section>
         <div class="content">
-            <h2>Floating elements</h2>
+            <h2>Float property</h2>
+            <p class="demoDescription">
+                allows you to horizontally align elements.
+            </p>
             <div class="demo"> 
                 <div class="demoShow" id="demoFloat">
-                    <span class="element1">This is a first inline element.</span>
-                    <span class="element2">And this is a second one. This one is very long, so it will take several lines.</span>
                 </div>              
-                <div class="demoCode">     
-<pre><code class="liveCoding language-css css" data-livecoding-id="demoFloat" contenteditable spellcheck="false">.element2 {
+                <div class="demoCode"> 
+<pre><code class="liveCoding language-css css" data-livecoding-id="demoFloat" contenteditable spellcheck="false">
+.element2 {
     float: none;
-}</code></pre>
+}
+</code></pre>
+<pre><code class="liveCoding language-markup html" data-livecoding-id="demoFloat" contenteditable spellcheck="false">
+<span class="element1">
+    This is a first inline element.
+</span>
+<span class="element2">
+    And this is a second one. This one is very long, so it will take several lines.
+</span>
+</code></pre>
                 </div>
             </div>
         </div>
@@ -40,6 +55,7 @@
 <script src="javascripts/bespoke.js"></script>
 <script src="javascripts/presentation.js"></script>
 <script src="javascripts/liveCoding.js"></script>
+<script src="javascripts/prefixfree.js"></script>
 <script src="javascripts/prism.js"></script>
 </body>
 </html>
