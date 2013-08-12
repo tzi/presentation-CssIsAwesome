@@ -8,19 +8,27 @@ var LiveCoding = (function() {
 	var allCode = document.querySelectorAll('code.liveCoding');
 
 	for(var i = 0; i < allCode.length; i++){
+
+		// Cleanup
+		var val = allCode[i].innerHTML;
+		val = val.replace(/</g, '&lt;');
+		val = val.replace(/^\s+/g,'').replace(/\s+$/g,'');
+		allCode[i].innerHTML = val;
+
+		// Initialize
 		update(allCode[i]);
 
-		// update when keyup
-		allCode[i].addEventListener('keyup', function(){
+		// Update demonstration when keyup
+		allCode[i].addEventListener('keyup', function(e){
 			update(this);
 		});
+
 	}
 
 	/**
 	 * Update
 	 */
 	function update(code){
-
 		var id = code.attributes.getNamedItem('data-livecoding-id').nodeValue;
 		var val = code.textContent;
 
@@ -39,12 +47,12 @@ var LiveCoding = (function() {
 			
 			// cleanup
 			val = val.replace(/^\s+/g,'').replace(/\s+$/g,'');
-			var reg = /(\{|\})/g;
-			val = val.split(reg);
+			val = val.split(/(\{|\})/g);
 			for(var i = 0; i < val.length - 1; i+=4){
 				val[i] = '#' + id + ' ' + val[i];
 			}
 			val = val.join('');
+
 
 			// if <style id="liveCoding_9999"> exists, replace content
 			if( document.getElementById('liveCoding_' + id) != null ){
@@ -59,6 +67,7 @@ var LiveCoding = (function() {
 
 		// else, if it's markup (HTML, SVG, XML...)
 		}else if(isMarkup){
+
 			// replace content 
 			document.getElementById(id).innerHTML = val;
 		}
