@@ -186,21 +186,162 @@
             <h2>2. overflow: hidden</h2>
             <div class="demoExplanation">
                 <p>It creates a BFC: Block formating context</p>
-                <p class="important">
+                <div class="important">
                     <span>The properties of a BFC: </span>
                     <ul>
                         <li>Contains his children</li>
                         <li>Does not wrap around floating elements</li>
                         <li>Create a scope for clearing</li>
                     </ul>
-                </p>
+                </div>
                 <p>What elements create a BFC?</p>
                 <ol>
                     <li>overflow: != visible</li>
                     <li>float: != none</li>
                     <li>position: absolute/fixed</li>
-                    <li>display: inline-block/table-cell/flex/inline-flex</li>
+                    <li>display: inline-block/table-cell/flex</li>
                 </ol>
+            </div>
+        </div>
+    </section>
+
+
+    <section>
+        <div class="content">
+            <h2>3. Proportionnal height</h2>
+            <p class="demoDescription">
+                allows you to define the height of an element according to the height of his parent
+            </p>
+            <div class="demo"> 
+                <div class="demoShow" id="demoPourcentHeight">
+                </div>              
+                <div class="demoCode"> 
+<pre><code class="liveCoding language-css css" data-livecoding-id="demoPourcentHeight" contenteditable spellcheck="false">
+.element1 {
+    height: 200px;
+}
+.element2 {
+    height: 50%;
+}
+</code></pre>
+<pre><code class="liveCoding language-markup html" data-livecoding-id="demoPourcentHeight" contenteditable spellcheck="false">
+<div class="element1">
+    I'm the parent.
+    <div class="element2">
+        I'm the child.
+    </div>
+</div>
+</code></pre>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section>
+        <div class="content">
+            <h2>3. Proportionnal height</h2>
+            <div class="demoExplanation">
+                <p class="important">
+                    It is only working with parent that have a specific height.
+                </p>
+                <p>The parent height depends of his children height. So, it is to prevent loops in height resolution.</p>
+            </div>
+        </div>
+    </section>
+
+
+    <section>
+        <div class="content">
+            <h2>4. Proportionnal margin</h2>
+            <p class="demoDescription">
+                allows you to define a margin according to the size of the element
+            </p>
+            <div class="demo"> 
+                <div class="demoShow" id="demoPourcentMargin">
+                </div>              
+                <div class="demoCode"> 
+<pre><code class="liveCoding language-css css" data-livecoding-id="demoPourcentMargin" contenteditable spellcheck="false">
+.element1 {
+    border: 1px black solid;
+}
+.element2 {
+    width: 25%;
+    margin-left: 0%;
+    margin-top: 0%;
+}
+</code></pre>
+<pre><code class="liveCoding language-markup html" data-livecoding-id="demoPourcentMargin" contenteditable spellcheck="false">
+<div class="element1">
+    <div class="element2">
+        I'm the child.
+    </div>
+</div>
+</code></pre>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section>
+        <div class="content">
+            <h2>4. Proportionnal margin</h2>
+            <div class="demoExplanation">
+                <p class="important">
+                    The margin horizontal & vertical in pourcent are proportionnal to the parent element width.
+                </p>
+            </div>
+        </div>
+    </section>
+
+
+    <section>
+        <div class="content">
+            <h2>5. CSS flow</h2>
+            <p class="demoDescription">
+                You can not reorder element in CSS2
+            </p>
+            <div class="demo"> 
+                <div class="demoShow" id="demoReorder">
+                </div>              
+                <div class="demoCode"> 
+<pre><code class="liveCoding language-css css" data-livecoding-id="demoReorder" contenteditable spellcheck="false">
+.element1 {
+    display: table-row;
+}
+.element2 {
+    display: table-row;
+}
+.element3 {
+    display: table-row;
+}
+</code></pre>
+<pre><code class="liveCoding language-markup html" data-livecoding-id="demoReorder" contenteditable spellcheck="false">
+<div class="element1">
+    I'm first.
+</div>
+<div class="element2">
+    I'm second.
+</div>
+<div class="element3">
+    I'm third.
+</div>
+</code></pre>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section>
+        <div class="content">
+            <h2>5. CSS flow</h2>
+            <div class="demoExplanation">
+                <p class="important">
+                    The table made with CSS are really powerfull!
+                </p>
+                <p>And it allows you to create DOM shadow and to not create all elements: table, table-row, table-cell.</p>
             </div>
         </div>
     </section>
