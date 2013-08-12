@@ -1,2 +1,197 @@
-/*! Bespoke.js v0.2.2 © 2013 Mark Dalgleish, Licensed MIT */
-!function(a,b,c){var d=function(a,b){var d=c.querySelector(a),f=[].slice.call(d.children,0),l=f[0],m={},n=function(a,b){f[a]&&(i(m,"deactivate",t(l,b)),l=f[a],f.map(p),i(m,"activate",t(l,b)),j(l,"active"),k(l,"inactive"))},p=function(a,b){var c=b-f.indexOf(l),d=c>0?"after":"before";["before(-\\d+)?","after(-\\d+)?","active","inactive"].map(k.bind(null,a)),a!==l&&["inactive",d,d+"-"+Math.abs(c)].map(j.bind(null,a))},q=function(a,b){i(m,"slide",t(f[a],b))&&n(a,b)},r=function(a){var b=f.indexOf(l)+1;i(m,"next",t(l,a))&&n(b,a)},s=function(a){var b=f.indexOf(l)-1;i(m,"prev",t(l,a))&&n(b,a)},t=function(a,b){return b=b||{},b.index=f.indexOf(a),b.slide=a,b},u={on:g.bind(null,m),off:h.bind(null,m),fire:i.bind(null,m),slide:q,next:r,prev:s,parent:d,slides:f};return j(d,"parent"),f.map(function(a){j(a,"slide")}),Object.keys(b||{}).map(function(a){var c=b[a];c&&o[a](u,c===!0?{}:c)}),n(0),e.push(u),u},e=[],f={},g=function(a,b,c){(a[b]||(a[b]=[])).push(c)},h=function(a,b,c){a[b]=(a[b]||[]).filter(function(a){return a!==c})},i=function(a,b,c){return(a[b]||[]).concat(a!==f&&f[b]||[]).reduce(function(a,b){return a&&b(c)!==!1},!0)},j=function(b,c){b.classList.add(a+"-"+c)},k=function(b,c){b.className=b.className.replace(new RegExp(a+"-"+c+"(\\s|$)","g")," ").replace(/^\s+|\s+$/g,"")},l=function(a){return function(b){e.map(function(c){c[a](b)})}},m=function(a){return{from:function(b,c){return(c=c||{})[a]=!0,d(b,c)}}},n=function(a){return function(b){var d,e;c.addEventListener("keydown",function(c){var d=c.which;(34===d||32===d||"X"===a&&39===d||"Y"===a&&40===d)&&b.next(),(33===d||"X"===a&&37===d||"Y"===a&&38===d)&&b.prev()}),b.parent.addEventListener("touchstart",function(b){b.touches.length&&(d=b.touches[0]["page"+a],e=0)}),b.parent.addEventListener("touchmove",function(b){b.touches.length&&(b.preventDefault(),e=b.touches[0]["page"+a]-d)}),b.parent.addEventListener("touchend",function(){Math.abs(e)>50&&(e>0?b.prev():b.next())})}},o={horizontal:n("X"),vertical:n("Y")};b[a]={from:d,slide:l("slide"),next:l("next"),prev:l("prev"),horizontal:m("horizontal"),vertical:m("vertical"),on:g.bind(null,f),off:h.bind(null,f),plugins:o}}("bespoke",this,document);
+(function(moduleName, window, document) {
+    var from = function(selector, selectedPlugins) {
+          var parent = document.querySelector(selector),
+            slides = [].slice.call(parent.children, 0),
+            activeSlide = slides[0],
+            deckListeners = {},
+
+            activate = function(index, customData) {
+                if (!slides[index]) {
+                    return;
+                }
+
+                fire(deckListeners, 'deactivate', createEventData(activeSlide, customData));
+
+                activeSlide = slides[index];
+
+                slides.map(deactivate);
+
+                fire(deckListeners, 'activate', createEventData(activeSlide, customData));
+
+                addClass(activeSlide, 'active');
+                removeClass(activeSlide, 'inactive');
+            },
+
+            deactivate = function(slide, index) {
+                var offset = index - slides.indexOf(activeSlide),
+                  offsetClass = offset > 0 ? 'after' : 'before';
+
+                ['before(-\\d+)?', 'after(-\\d+)?', 'active', 'inactive'].map(removeClass.bind(null, slide));
+
+                slide !== activeSlide &&
+                ['inactive', offsetClass, offsetClass + '-' + Math.abs(offset)].map(addClass.bind(null, slide));
+            },
+
+            slide = function(index, customData) {
+                fire(deckListeners, 'slide', createEventData(slides[index], customData)) && activate(index, customData);
+            },
+
+            next = function(customData) {
+                var nextSlideIndex = slides.indexOf(activeSlide) + 1;
+
+                fire(deckListeners, 'next', createEventData(activeSlide, customData)) && activate(nextSlideIndex, customData);
+            },
+
+            prev = function(customData) {
+                var prevSlideIndex = slides.indexOf(activeSlide) - 1;
+
+                fire(deckListeners, 'prev', createEventData(activeSlide, customData)) && activate(prevSlideIndex, customData);
+            },
+
+            createEventData = function(slide, eventData) {
+                eventData = eventData || {};
+                eventData.index = slides.indexOf(slide);
+                eventData.slide = slide;
+                return eventData;
+            },
+
+            deck = {
+                on: on.bind(null, deckListeners),
+                off: off.bind(null, deckListeners),
+                fire: fire.bind(null, deckListeners),
+                slide: slide,
+                next: next,
+                prev: prev,
+                parent: parent,
+                slides: slides
+            };
+
+          addClass(parent, 'parent');
+
+          slides.map(function(slide) {
+              addClass(slide, 'slide');
+          });
+
+          Object.keys(selectedPlugins || {}).map(function(pluginName) {
+              var config = selectedPlugins[pluginName];
+              config && plugins[pluginName](deck, config === true ? {} : config);
+          });
+
+          activate(0);
+
+          decks.push(deck);
+
+          return deck;
+      },
+
+      decks = [],
+
+      bespokeListeners = {},
+
+      on = function(listeners, eventName, callback) {
+          (listeners[eventName] || (listeners[eventName] = [])).push(callback);
+      },
+
+      off = function(listeners, eventName, callback) {
+          listeners[eventName] = (listeners[eventName] || []).filter(function(listener) {
+              return listener !== callback;
+          });
+      },
+
+      fire = function(listeners, eventName, eventData) {
+          return (listeners[eventName] || [])
+            .concat((listeners !== bespokeListeners && bespokeListeners[eventName]) || [])
+            .reduce(function(notCancelled, callback) {
+                return notCancelled && callback(eventData) !== false;
+            }, true);
+      },
+
+      addClass = function(el, cls) {
+          el.classList.add(moduleName + '-' + cls);
+      },
+
+      removeClass = function(el, cls) {
+          el.className = el.className
+            .replace(new RegExp(moduleName + '-' + cls +'(\\s|$)', 'g'), ' ')
+            .replace(/^\s+|\s+$/g, '');
+      },
+
+      callOnAllInstances = function(method) {
+          return function(arg) {
+              decks.map(function(deck) {
+                  deck[method].call(null, arg);
+              });
+          };
+      },
+
+      bindPlugin = function(pluginName) {
+          return {
+              from: function(selector, selectedPlugins) {
+                  (selectedPlugins = selectedPlugins || {})[pluginName] = true;
+                  return from(selector, selectedPlugins);
+              }
+          };
+      },
+
+      makePluginForAxis = function(axis) {
+          return function(deck) {
+              var startPosition,
+                delta;
+
+              document.addEventListener('keydown', function(e) {
+                  if (document.activeElement.hasAttribute('contenteditable')) {
+                    return;
+                  }
+                  var key = e.which;
+
+                  (
+                    key === 34 || // PAGE DOWN
+                      key === 32 || // SPACE
+                      axis === 'X' && key === 39 || // RIGHT
+                      axis === 'Y' && key === 40 // BOTTOM
+                    ) && deck.next();
+                  (
+                    key === 33 || // PAGE UP
+                      axis === 'X' && key === 37 || // LEFT
+                      axis === 'Y' && key === 38 // TOP
+                    ) && deck.prev();
+              });
+
+              deck.parent.addEventListener('touchstart', function(e) {
+                  if (e.touches.length) {
+                      startPosition = e.touches[0]['page' + axis];
+                      delta = 0;
+                  }
+              });
+
+              deck.parent.addEventListener('touchmove', function(e) {
+                  if (e.touches.length) {
+                      e.preventDefault();
+                      delta = e.touches[0]['page' + axis] - startPosition;
+                  }
+              });
+
+              deck.parent.addEventListener('touchend', function() {
+                  Math.abs(delta) > 50 && (delta > 0 ? deck.prev() : deck.next());
+              });
+          };
+      },
+
+      plugins = {
+          horizontal: makePluginForAxis('X'),
+          vertical: makePluginForAxis('Y')
+      };
+
+    window[moduleName] = {
+        from: from,
+        slide: callOnAllInstances('slide'),
+        next: callOnAllInstances('next'),
+        prev: callOnAllInstances('prev'),
+        horizontal: bindPlugin('horizontal'),
+        vertical: bindPlugin('vertical'),
+        on: on.bind(null, bespokeListeners),
+        off: off.bind(null, bespokeListeners),
+        plugins: plugins
+    };
+
+}('bespoke', this, document));
