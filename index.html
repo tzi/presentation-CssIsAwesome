@@ -26,7 +26,7 @@
 
     <section>
         <div class="content">
-            <h2>Float elements</h2>
+            <h2>1. Float elements</h2>
             <p class="demoDescription">
                 allows you to horizontally align elements.
             </p>
@@ -55,15 +55,157 @@
 
     <section>
         <div class="content">
-            <h2>Float elements</h2>
-            <p class="demoDescription">
-                are rendered like a float element, not like an inline or block one.
-            </p>
-            <p class="demoDescription">
-                A great approximation is a block element wich has its width that fit to its content.
-            </p>
+            <h2>1. Float elements</h2>
+            <div class="demoExplanation">
+                <p>They are not rendered like an inline or block element.</p>
+                <p class="important">
+                    <span>A good approximation: </span>
+                    A floating element is like a block element which has its width that fit to its content.
+                </p>
+                <p>How to know how your element will be rendered?</p>
+                <ol>
+                    <li>display: none</li>
+                    <li>position: absolute/fixed</li>
+                    <li>float: left/right</li>
+                    <li>display: *other values*</li>
+                </ol>
+            </div>
         </div>
     </section>
+
+
+    <section>
+        <div class="content">
+            <h2>2. overflow: hidden</h2>
+            <p class="demoDescription">
+                has no impact if there is no overflow.
+            </p>
+            <div class="demo"> 
+                <div class="demoShow" id="demoOverflow">
+                </div>              
+                <div class="demoCode"> 
+<pre><code class="liveCoding language-css css" data-livecoding-id="demoOverflow" contenteditable spellcheck="false">
+.element1 {
+    float: left;
+    margin: 20px;
+}
+.element2 {
+    overflow: visible;
+}
+</code></pre>
+<pre><code class="liveCoding language-markup html" data-livecoding-id="demoOverflow" contenteditable spellcheck="false">
+<div class="element2">
+    <div class="element1">
+        I'm floating.
+    </div>
+    I'm not floating
+</div>
+</code></pre>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section>
+        <div class="content">
+            <h2>2. overflow: hidden</h2>
+            <p class="demoDescription">
+                has no impact if there is no overflow.
+            </p>
+            <div class="demo"> 
+                <div class="demoShow" id="demoOverflow2">
+                </div>              
+                <div class="demoCode"> 
+<pre><code class="liveCoding language-css css" data-livecoding-id="demoOverflow2" contenteditable spellcheck="false">
+.element1 {
+    float: left;
+    margin: 20px;
+}
+.element2 {
+    overflow: visible;
+}
+</code></pre>
+<pre><code class="liveCoding language-markup html" data-livecoding-id="demoOverflow2" contenteditable spellcheck="false">
+<div class="element1">
+    I'm floating.
+</div>
+<div class="element2">
+    I'm not floating and I have no overflow.<br>
+    But I take all the width of my parent. <br>
+    If my text is too long I will continue bellow the floating elements.
+</div>
+</code></pre>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section>
+        <div class="content">
+            <h2>2. overflow: hidden</h2>
+            <p class="demoDescription">
+                has no impact if there is no overflow.
+            </p>
+            <div class="demo"> 
+                <div class="demoShow" id="demoOverflow3">
+                </div>              
+                <div class="demoCode"> 
+<pre><code class="liveCoding language-css css" data-livecoding-id="demoOverflow3" contenteditable spellcheck="false">
+.element1 {
+    float: left;
+    margin: 20px;
+}
+.element2 {
+    overflow: visible;
+}
+.element3 {
+    clear: left;
+}
+</code></pre>
+<pre><code class="liveCoding language-markup html" data-livecoding-id="demoOverflow3" contenteditable spellcheck="false">
+<div class="element1">
+    I'm floating.
+</div>
+<div class="element2">
+    I'm not floating
+    <div class="element3">
+        I'm clearing.
+    </div>
+</div>
+</code></pre>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section>
+        <div class="content">
+            <h2>2. overflow: hidden</h2>
+            <div class="demoExplanation">
+                <p>It creates a BFC: Block formating context</p>
+                <p class="important">
+                    <span>The properties of a BFC: </span>
+                    <ul>
+                        <li>Contains his children</li>
+                        <li>Does not wrap around floating elements</li>
+                        <li>Create a scope for clearing</li>
+                    </ul>
+                </p>
+                <p>What elements create a BFC?</p>
+                <ol>
+                    <li>overflow: != visible</li>
+                    <li>float: != none</li>
+                    <li>position: absolute/fixed</li>
+                    <li>display: inline-block/table-cell/flex/inline-flex</li>
+                </ol>
+            </div>
+        </div>
+    </section>
+
+
 </article>
 <script src="javascripts/bespoke.js"></script>
 <script src="javascripts/presentation.js"></script>

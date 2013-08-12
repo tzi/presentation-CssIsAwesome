@@ -75,6 +75,24 @@ section a {
     color: #666;
     margin-top: 5px;
 }
+.demoExplanation {
+    color: #666;
+    font-size: 22px;
+    width: 700px;
+    text-align: left;
+    margin: 5px auto;
+}
+
+.important {
+    border: 1px #888 solid;
+    background: #F5F2F0;
+    padding: 1em;
+    color: #141414;
+}
+.important > span {
+    margin-bottom: 0.5em;
+    display: block;
+}
 
 .demo {
     display: table;
@@ -102,6 +120,13 @@ code.liveCoding {
     display: block;
     outline: none;
 }
+
+div.element1,
+div.element2,
+div.element3 {
+    padding: 1em;
+}
+
 
 .element1 {
     background: yellowgreen;
