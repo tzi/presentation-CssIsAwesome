@@ -28,8 +28,12 @@ section {
 .content {
     display: table-cell;
     padding: 1em;
-    vertical-align: middle;
+    vertical-align: top;
     text-align: center;
+}
+
+.content--card {
+    vertical-align: middle;
 }
 
 
@@ -66,12 +70,18 @@ section a {
 
 /* Live coding
  ====================================================*/
+.demoDescription {
+    font-size: 22px;
+    color: #666;
+    margin-top: 5px;
+}
+
 .demo {
     display: table;
     table-layout: fixed;
     width: 100%;
     max-width: 1000px;
-    margin: 1em auto;
+    margin: 2em auto;
     font-size: 18px;
 }
 
@@ -81,6 +91,10 @@ section a {
     width: 50%;
     vertical-align: top;
     text-align: left;
+}
+
+.demoCode pre {
+    margin-top: 0;
 }
 
 code.liveCoding {
