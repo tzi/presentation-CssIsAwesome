@@ -80,11 +80,24 @@ section a {
     display: table-cell;
     width: 50%;
     vertical-align: top;
+    text-align: left;
 }
 
 code.liveCoding {
     display: block;
     outline: none;
+}
+
+.element1 {
+    background: yellowgreen;
+}
+
+.element2 {
+    background: tomato;
+}
+
+.element3 {
+    background: deepskyblue;
 }
 
 
