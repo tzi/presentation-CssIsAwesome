@@ -347,6 +347,155 @@
     </section>
 
 
+    <section>
+        <div class="content">
+            <h2>6. z-index</h2>
+            <p class="demoDescription">
+                The maximal value will always be on the top.
+            </p>
+            <div class="demo"> 
+                <div class="demoShow" id="demoZIndex">
+                </div>              
+                <div class="demoCode"> 
+<pre><code class="liveCoding language-css css" data-livecoding-id="demoZIndex" contenteditable spellcheck="false">
+.element1 {
+    position: absolute;
+    z-index: 10;
+}
+.element2 {
+    position: relative;
+}
+.element3 {
+    position: absolute;
+    z-index: 10;
+}
+</code></pre>
+<pre><code class="liveCoding language-markup html" data-livecoding-id="demoZIndex" contenteditable spellcheck="false">
+<div class="element1">
+    I'm absolute with z-index 10.
+</div>
+<div class="element2">
+    <div class="element3">
+        I'm absolute too, but with z-index 11.
+    </div>
+</div>
+</code></pre>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section>
+        <div class="content">
+            <h2>6. z-index</h2>
+            <p class="demoDescription">
+                Positionned elements can not be behind his parent.
+            </p>
+            <div class="demo"> 
+                <div class="demoShow" id="demoZIndex2">
+                </div>              
+                <div class="demoCode"> 
+<pre><code class="liveCoding language-css css" data-livecoding-id="demoZIndex2" contenteditable spellcheck="false">
+.element1 {
+    height: 100px;
+}
+.element2 {
+    position: absolute;
+    z-index: 10;
+}
+</code></pre>
+<pre><code class="liveCoding language-markup html" data-livecoding-id="demoZIndex2" contenteditable spellcheck="false">
+<div class="element1">
+    I'm the parent.
+    <div class="element2">
+        I'm absolute
+    </div>
+</div>
+</code></pre>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section>
+        <div class="content">
+            <h2>6. z-index</h2>
+            <p class="demoDescription">
+                is the only way to modify the stack order.
+            </p>
+            <div class="demo"> 
+                <div class="demoShow" id="demoZIndex3">
+                </div>              
+                <div class="demoCode"> 
+<pre><code class="liveCoding language-css css" data-livecoding-id="demoZIndex3" contenteditable spellcheck="false">
+.element1 {
+    height: 100px;
+}
+.element2 {
+    position: absolute;
+    z-index: -1;
+}
+</code></pre>
+<pre><code class="liveCoding language-markup html" data-livecoding-id="demoZIndex3" contenteditable spellcheck="false">
+<div class="element1">
+    I'm the parent.
+    <div class="element2">
+        I'm absolute
+    </div>
+</div>
+</code></pre>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section>
+        <div class="content">
+            <h2>6. z-index</h2>
+            <div class="demoExplanation">
+                <div class="important">
+                    <p>The render is independant between every stacking context:</p>
+                    <ol>
+                        <li>z-index < 0</li>
+                        <li>Block elements</li>
+                        <li>Floating elements</li>
+                        <li>Inline elements</li>
+                        <li>z-index > 0</li>
+                    </ol>
+                </div>
+                <p>There is different way to create a stacking context:</p>
+                <ol>
+                    <li>position: absolute/relative/fixed & z-index != auto</li>
+                    <li>opacity < 1</li>
+                    <li>transform != none</li>
+                    <li>transform-style: preserve-3d</li>
+                    <li>filter != none</li>
+                    <li>clip-path, mask</li>
+                </ol>
+            </div>
+        </div>
+    </section>
+
+
+    <section>
+        <div class="content content--card">
+            <h1>And a lot more</h1>
+            <small class="classy">but</small>
+            <div>it will be for another time ;)</div>
+        </div>
+    </section>
+
+
+    <section>
+        <div class="content content--card">
+            <h1>Thanks you!</h1>
+        </div>
+    </section>
+
+
 </article>
 <script src="javascripts/bespoke.js"></script>
 <script src="javascripts/presentation.js"></script>
