@@ -155,10 +155,12 @@
 <pre><code class="liveCoding language-css css" data-livecoding-id="demoOverflow3" contenteditable spellcheck="false">
 .element1 {
     float: left;
-    margin: 20px;
+    width: 150px;
+    height: 150px;
 }
 .element2 {
     overflow: visible;
+    margin-left: 200px;
 }
 .element3 {
     clear: left;
@@ -208,7 +210,7 @@
 
     <section>
         <div class="content">
-            <h2>3. Proportionnal height</h2>
+            <h2>3. Proportionnal values</h2>
             <p class="demoDescription">
                 allows you to define the height of an element according to the height of his parent
             </p>
@@ -240,20 +242,7 @@
 
     <section>
         <div class="content">
-            <h2>3. Proportionnal height</h2>
-            <div class="demoExplanation">
-                <p class="important">
-                    It is only working with parent that have a specific height.
-                </p>
-                <p>The parent height depends of his children height. So, it is to prevent loops in height resolution.</p>
-            </div>
-        </div>
-    </section>
-
-
-    <section>
-        <div class="content">
-            <h2>4. Proportionnal margin</h2>
+            <h2>3. Proportionnal values</h2>
             <p class="demoDescription">
                 allows you to define a margin according to the size of the element
             </p>
@@ -286,10 +275,14 @@
 
     <section>
         <div class="content">
-            <h2>4. Proportionnal margin</h2>
+            <h2>3. Proportionnal values</h2>
             <div class="demoExplanation">
                 <p class="important">
-                    The margin horizontal & vertical in pourcent are proportionnal to the parent element width.
+                    Verticaly box sizing is only working with a parent that have a specific height.
+                </p>
+                <p>The parent height depends of his children height. So, it is to prevent loops in height resolution.</p>
+                <p class="important">
+                    The margin horizontal & vertical in percent are proportionnal to the parent element width.
                 </p>
             </div>
         </div>
@@ -298,9 +291,9 @@
 
     <section>
         <div class="content">
-            <h2>5. CSS flow</h2>
+            <h2>4. Table layout</h2>
             <p class="demoDescription">
-                You can not reorder element in CSS2
+                are has been & not recommended
             </p>
             <div class="demo"> 
                 <div class="demoShow" id="demoReorder">
@@ -336,7 +329,7 @@
 
     <section>
         <div class="content">
-            <h2>5. CSS flow</h2>
+            <h2>4. Table layout</h2>
             <div class="demoExplanation">
                 <p class="important">
                     The table made with CSS are really powerfull!
@@ -349,7 +342,7 @@
 
     <section>
         <div class="content">
-            <h2>6. z-index</h2>
+            <h2>5. z-index</h2>
             <p class="demoDescription">
                 The maximal value will always be on the top.
             </p>
@@ -388,7 +381,7 @@
 
     <section>
         <div class="content">
-            <h2>6. z-index</h2>
+            <h2>5. z-index</h2>
             <p class="demoDescription">
                 Positionned elements can not be behind his parent.
             </p>
@@ -421,7 +414,7 @@
 
     <section>
         <div class="content">
-            <h2>6. z-index</h2>
+            <h2>5. z-index</h2>
             <p class="demoDescription">
                 is the only way to modify the stack order.
             </p>
@@ -454,7 +447,7 @@
 
     <section>
         <div class="content">
-            <h2>6. z-index</h2>
+            <h2>5. z-index</h2>
             <div class="demoExplanation">
                 <div class="important">
                     <p>The render is independant between every stacking context:</p>
