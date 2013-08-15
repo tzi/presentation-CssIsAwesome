@@ -121,22 +121,22 @@ code.liveCoding {
     outline: none;
 }
 
-div.element1,
-div.element2,
-div.element3 {
+div.greenElement,
+div.redElement,
+div.blueElement {
     padding: 1em;
 }
 
 
-.element1 {
+.greenElement {
     background: yellowgreen;
 }
 
-.element2 {
+.redElement {
     background: tomato;
 }
 
-.element3 {
+.blueElement {
     background: deepskyblue;
 }
 

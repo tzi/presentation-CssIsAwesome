@@ -35,15 +35,15 @@
                 </div>              
                 <div class="demoCode"> 
 <pre><code class="liveCoding language-css css" data-livecoding-id="demoFloat" contenteditable spellcheck="false">
-.element2 {
+.redElement {
     float: none;
 }
 </code></pre>
 <pre><code class="liveCoding language-markup html" data-livecoding-id="demoFloat" contenteditable spellcheck="false">
-<span class="element1">
+<span class="greenElement">
     This is a first inline element.
 </span>
-<span class="element2">
+<span class="redElement">
     And this is a second one. This one is very long, so it will take several lines.
 </span>
 </code></pre>
@@ -85,17 +85,17 @@
                 </div>              
                 <div class="demoCode"> 
 <pre><code class="liveCoding language-css css" data-livecoding-id="demoOverflow" contenteditable spellcheck="false">
-.element1 {
+.greenElement {
     float: left;
     margin: 20px;
 }
-.element2 {
+.redElement {
     overflow: visible;
 }
 </code></pre>
 <pre><code class="liveCoding language-markup html" data-livecoding-id="demoOverflow" contenteditable spellcheck="false">
-<div class="element2">
-    <div class="element1">
+<div class="redElement">
+    <div class="greenElement">
         I'm floating.
     </div>
     I'm not floating
@@ -118,19 +118,19 @@
                 </div>              
                 <div class="demoCode"> 
 <pre><code class="liveCoding language-css css" data-livecoding-id="demoOverflow2" contenteditable spellcheck="false">
-.element1 {
+.greenElement {
     float: left;
     margin: 20px;
 }
-.element2 {
+.redElement {
     overflow: visible;
 }
 </code></pre>
 <pre><code class="liveCoding language-markup html" data-livecoding-id="demoOverflow2" contenteditable spellcheck="false">
-<div class="element1">
+<div class="greenElement">
     I'm floating.
 </div>
-<div class="element2">
+<div class="redElement">
     I'm not floating and I have no overflow.<br>
     But I take all the width of my parent. <br>
     If my text is too long I will continue bellow the floating elements.
@@ -153,26 +153,26 @@
                 </div>              
                 <div class="demoCode"> 
 <pre><code class="liveCoding language-css css" data-livecoding-id="demoOverflow3" contenteditable spellcheck="false">
-.element1 {
+.greenElement {
     float: left;
     width: 150px;
     height: 150px;
 }
-.element2 {
+.redElement {
     overflow: visible;
     margin-left: 200px;
 }
-.element3 {
+.blueElement {
     clear: left;
 }
 </code></pre>
 <pre><code class="liveCoding language-markup html" data-livecoding-id="demoOverflow3" contenteditable spellcheck="false">
-<div class="element1">
+<div class="greenElement">
     I'm floating.
 </div>
-<div class="element2">
+<div class="redElement">
     I'm not floating
-    <div class="element3">
+    <div class="blueElement">
         I'm clearing.
     </div>
 </div>
@@ -219,17 +219,17 @@
                 </div>              
                 <div class="demoCode"> 
 <pre><code class="liveCoding language-css css" data-livecoding-id="demoPourcentHeight" contenteditable spellcheck="false">
-.element1 {
+.greenElement {
     height: 200px;
 }
-.element2 {
+.redElement {
     height: 50%;
 }
 </code></pre>
 <pre><code class="liveCoding language-markup html" data-livecoding-id="demoPourcentHeight" contenteditable spellcheck="false">
-<div class="element1">
+<div class="greenElement">
     I'm the parent.
-    <div class="element2">
+    <div class="redElement">
         I'm the child.
     </div>
 </div>
@@ -251,15 +251,15 @@
                 </div>              
                 <div class="demoCode"> 
 <pre><code class="liveCoding language-css css" data-livecoding-id="demoPourcentMargin" contenteditable spellcheck="false">
-.element2 {
+.redElement {
     width: 25%;
     margin-left: 0%;
     margin-top: 0%;
 }
 </code></pre>
 <pre><code class="liveCoding language-markup html" data-livecoding-id="demoPourcentMargin" contenteditable spellcheck="false">
-<div class="element1">
-    <div class="element2">
+<div class="greenElement">
+    <div class="redElement">
         I'm the child.
     </div>
 </div>
@@ -297,24 +297,24 @@
                 </div>              
                 <div class="demoCode"> 
 <pre><code class="liveCoding language-css css" data-livecoding-id="demoReorder" contenteditable spellcheck="false">
-.element1 {
+.greenElement {
     display: table-row;
 }
-.element2 {
+.redElement {
     display: table-row;
 }
-.element3 {
+.blueElement {
     display: table-row;
 }
 </code></pre>
 <pre><code class="liveCoding language-markup html" data-livecoding-id="demoReorder" contenteditable spellcheck="false">
-<div class="element1">
+<div class="greenElement">
     I'm first.
 </div>
-<div class="element2">
+<div class="redElement">
     I'm second.
 </div>
-<div class="element3">
+<div class="blueElement">
     I'm third.
 </div>
 </code></pre>
@@ -348,24 +348,24 @@
                 </div>              
                 <div class="demoCode"> 
 <pre><code class="liveCoding language-css css" data-livecoding-id="demoZIndex" contenteditable spellcheck="false">
-.element1 {
+.greenElement {
     position: absolute;
     z-index: 10;
 }
-.element2 {
+.redElement {
     position: relative;
 }
-.element3 {
+.blueElement {
     position: absolute;
     z-index: 10;
 }
 </code></pre>
 <pre><code class="liveCoding language-markup html" data-livecoding-id="demoZIndex" contenteditable spellcheck="false">
-<div class="element1">
+<div class="greenElement">
     I'm absolute with z-index 10.
 </div>
-<div class="element2">
-    <div class="element3">
+<div class="redElement">
+    <div class="blueElement">
         I'm absolute too, but with z-index 11.
     </div>
 </div>
@@ -387,18 +387,18 @@
                 </div>              
                 <div class="demoCode"> 
 <pre><code class="liveCoding language-css css" data-livecoding-id="demoZIndex2" contenteditable spellcheck="false">
-.element1 {
+.greenElement {
     height: 100px;
 }
-.element2 {
+.redElement {
     position: absolute;
     z-index: 10;
 }
 </code></pre>
 <pre><code class="liveCoding language-markup html" data-livecoding-id="demoZIndex2" contenteditable spellcheck="false">
-<div class="element1">
+<div class="greenElement">
     I'm the parent.
-    <div class="element2">
+    <div class="redElement">
         I'm absolute
     </div>
 </div>
@@ -420,18 +420,18 @@
                 </div>              
                 <div class="demoCode"> 
 <pre><code class="liveCoding language-css css" data-livecoding-id="demoZIndex3" contenteditable spellcheck="false">
-.element1 {
+.greenElement {
     height: 100px;
 }
-.element2 {
+.redElement {
     position: absolute;
     z-index: -1;
 }
 </code></pre>
 <pre><code class="liveCoding language-markup html" data-livecoding-id="demoZIndex3" contenteditable spellcheck="false">
-<div class="element1">
+<div class="greenElement">
     I'm the parent.
-    <div class="element2">
+    <div class="redElement">
         I'm absolute
     </div>
 </div>
