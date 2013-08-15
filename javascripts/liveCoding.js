@@ -31,6 +31,7 @@ var LiveCoding = (function() {
 	function update(code){
 		var id = code.attributes.getNamedItem('data-livecoding-id').nodeValue;
 		var val = code.textContent;
+		var demo = document.getElementById(id);
 
 		// highlight.js and prism.js
 		var isCSS = (code.classList.contains('css') || code.classList.contains('language-css'));
@@ -69,7 +70,31 @@ var LiveCoding = (function() {
 		}else if(isMarkup){
 
 			// replace content 
-			document.getElementById(id).innerHTML = val;
+			demo.innerHTML = val;
+		}
+
+		var innerCSS = demo.querySelectorAll('[data-at]');
+		for (var i=0; i<innerCSS.length; i++) {
+			var attributes = innerCSS[i].getAttribute('data-at').split(',');
+			var values = [];
+			var innerHTML = [];
+			for (var j=0; j<attributes.length; j++) {
+				values[attributes[j]] = getComputedStyle(innerCSS[i]).getPropertyValue(attributes[j]);
+				innerHTML.push(attributes[j] + ": " + values[attributes[j]]);
+			}
+			innerHTML = "I'm " + innerHTML.join(' & ');
+			var textNode;
+			if (textNode = getChildTextNode(innerCSS[i])) {
+				textNode.nodeValue = innerHTML;
+			}
+		}
+
+		function getChildTextNode(element) {
+			for (var i=0; i<element.childNodes.length; j++) {
+			    if (element.childNodes[i].nodeType = 3) {
+			        return element.childNodes[i];
+			    }
+			}
 		}
 	}
 
