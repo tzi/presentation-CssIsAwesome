@@ -70,7 +70,7 @@ var LiveCoding = (function() {
 		}else if(isMarkup){
 
 			// replace content 
-			demo.innerHTML = val;
+			demo.innerHTML = "<div style='position:relative'>"+val+"</div>";
 		}
 
 		var innerCSS = demo.querySelectorAll('[data-at]');
