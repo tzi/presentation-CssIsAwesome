@@ -26,6 +26,57 @@
 
     <section>
         <div class="content">
+            <h2>0. Les marges</h2>
+            <p class="demoDescription">
+                c'est comme du padding, mais à l'extérieur de la boîte
+            </p>
+            <div class="demo">
+                <div class="demoShow" id="demoMarginMerge"></div>
+                <div class="demoCode"> 
+<pre><code class="liveCoding language-css css" data-livecoding-id="demoMarginMerge" contenteditable spellcheck="false">
+.green {
+    height: 30px;
+    margin-bottom: 30px;
+}
+.red {
+    display: block;
+    margin: 30px 0;
+}
+.blue {
+    height: 30px;
+    margin-top: 30px;
+}
+</code></pre>
+<pre><code class="liveCoding language-markup html" data-livecoding-id="demoMarginMerge" contenteditable spellcheck="false">
+<div class="green" data-at="height"></div>
+<div class="red">Je suis un élémént avec des marges en haut et en bas, elles font 30px.</div>
+<div class="blue" data-at="height"></div>
+</code></pre>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section>
+        <div class="content">
+            <h2>0. Les marges</h2>
+            <div class="demoExplanation">
+                <div class="important">
+                    <p>Les marges fusionnent avec celles des éléments frères si : </p>
+                    <ol>
+                        <li>elles sont verticales</li>
+                        <li>il s'agit d'éléments block</li>
+                    </ol>
+                </div>
+                <p>Les marges peuvent aussi fusionner entre un élément parent et ses enfants.</p>
+            </div>
+        </div>
+    </section>
+
+
+    <section>
+        <div class="content">
             <h2>1. Les flottants</h2>
             <p class="demoDescription">
                 permettent d'aligner deux éléments horizontalement
@@ -36,6 +87,7 @@
 <pre><code class="liveCoding language-css css" data-livecoding-id="demoFloat" contenteditable spellcheck="false">
 .red {
     float: none;
+    padding: 0px 0px;
     display: inline;
 }
 </code></pre>
@@ -110,7 +162,7 @@
         <div class="content">
             <h2>2. Le débordement</h2>
             <p class="demoDescription">
-                ne permet pas d'aligner deux éléments horizontalement
+                n'est pas une propriété magique
             </p>
             <div class="demo"> 
                 <div class="demoShow" id="demoOverflow">
@@ -141,7 +193,7 @@
         <div class="content">
             <h2>2. Le débordement</h2>
             <p class="demoDescription">
-                ne permet pas d'aligner deux éléments horizontalement
+                n'est pas une propriété magique
             </p>
             <div class="demo"> 
                 <div class="demoShow" id="demoOverflow3">
@@ -202,13 +254,12 @@
 
     <section>
         <div class="content">
-            <h2>3. Proportionnal values</h2>
+            <h2>3. Les pourcentages</h2>
             <p class="demoDescription">
-                allows you to define the height of an element according to the height of his parent
+                sont simples, on connaît depuis le CM1
             </p>
             <div class="demo"> 
-                <div class="demoShow" id="demoPourcentHeight">
-                </div>              
+                <div class="demoShow" id="demoPourcentHeight"></div>              
                 <div class="demoCode"> 
 <pre><code class="liveCoding language-css css" data-livecoding-id="demoPourcentHeight" contenteditable spellcheck="false">
 .green {
@@ -232,9 +283,9 @@
 
     <section>
         <div class="content">
-            <h2>3. Proportionnal values</h2>
+            <h2>3. Les pourcentages</h2>
             <p class="demoDescription">
-                allows you to define a margin according to the size of the element
+                sont simples, on connaît depuis le CM1
             </p>
             <div class="demo"> 
                 <div class="demoShow" id="demoPourcentMargin">
@@ -261,14 +312,16 @@
 
     <section>
         <div class="content">
-            <h2>3. Proportionnal values</h2>
+            <h2>3. Les pourcentages</h2>
             <div class="demoExplanation">
                 <p class="important">
-                    Verticaly box sizing is only working with a parent that have a specific height.
+                    Le dimensionnement vertical en pourcentage fonctionne seulement si l'élément conteneur a une hauteur précise.
                 </p>
-                <p>The parent height depends of his children height. So, it is to prevent loops in height resolution.</p>
+                <p>
+                    La hauteur du parent dépendant de celle de ces enfants, cela évite les boucles de résolution.
+                </p>
                 <p class="important">
-                    The margin horizontal & vertical in percent are proportionnal to the parent element width.
+                    Les marges en pourcentage, quelles soient horizontales ou verticales, sont proportionnelles à la largeur de l'élément conteneur.
                 </p>
             </div>
         </div>
@@ -277,35 +330,30 @@
 
     <section>
         <div class="content">
-            <h2>4. Table layout</h2>
+            <h2>4. La mise en page en table</h2>
             <p class="demoDescription">
-                are has been & not recommended
+                c'est le mal
             </p>
-            <div class="demo"> 
-                <div class="demoShow" id="demoReorder">
-                </div>              
+            <div class="demo">
+                <div class="demoShow" id="demoReorder"></div>
                 <div class="demoCode"> 
 <pre><code class="liveCoding language-css css" data-livecoding-id="demoReorder" contenteditable spellcheck="false">
 .green {
-    display: table-row;
-}
+    display: table-cell;
+    }
 .red {
-    display: table-row;
+    display: table-cell;
 }
 .blue {
-    display: table-row;
+    display: table-cell;
 }
 </code></pre>
 <pre><code class="liveCoding language-markup html" data-livecoding-id="demoReorder" contenteditable spellcheck="false">
-<div class="green">
-    I'm 1st.
-</div>
-<div class="red">
-    I'm 2sd.
-</div>
-<div class="blue">
-    I'm 3th.
-</div>
+    <div style="display: table; width: 100%;">
+        <div class="green">I'm 1st.</div>
+        <div class="red">I'm 2sd.</div>
+        <div class="blue">I'm 3th.</div>
+    </div>
 </code></pre>
                 </div>
             </div>
@@ -315,12 +363,20 @@
 
     <section>
         <div class="content">
-            <h2>4. Table layout</h2>
+            <h2>4. La mise en page en table</h2>
             <div class="demoExplanation">
-                <p class="important">
-                    The table made with CSS are really powerfull!
+                <div class="important">
+                    <p>La mise en page en table, c'est hyper puissant !</p>
+                    <ol>
+                        <li>réordonnancement</li>
+                        <li>distribution de l'espace</li>
+                        <li>alignement vertical</li>
+                    </ol>
+                </div>
+                <p>
+                    C'est compatible IE8+, par contre le code nécessaire est assez cryptique.
+                    Désormais on préfèrera flexbox quand-même.
                 </p>
-                <p>And it allows you to create DOM shadow and to not create all elements: table, table-row, table-cell.</p>
             </div>
         </div>
     </section>
@@ -328,9 +384,9 @@
 
     <section>
         <div class="content">
-            <h2>5. z-index</h2>
+            <h2>5. Le z-index</h2>
             <p class="demoDescription">
-                The maximal value will always be on the top.
+                permettent la résolution des conflits
             </p>
             <div class="demo"> 
                 <div class="demoShow" id="demoZIndex">
@@ -343,6 +399,7 @@
 }
 .red {
     position: relative;
+    z-index: auto;
     text-align: right;
 }
 .blue {
@@ -366,9 +423,9 @@
 
     <section>
         <div class="content">
-            <h2>5. z-index</h2>
+            <h2>5. Le z-index</h2>
             <p class="demoDescription">
-                Positionned elements can not be behind his parent.
+                ne peut avoir que des valeurs positives
             </p>
             <div class="demo"> 
                 <div class="demoShow" id="demoZIndex2">
@@ -398,9 +455,9 @@
 
     <section>
         <div class="content">
-            <h2>5. z-index</h2>
+            <h2>5. Le z-index</h2>
             <p class="demoDescription">
-                is the only way to modify the stack order.
+                ne rentre en conflit qu'avec les éléments positionnés
             </p>
             <div class="demo"> 
                 <div class="demoShow" id="demoZIndex3">
@@ -409,6 +466,7 @@
 <pre><code class="liveCoding language-css css" data-livecoding-id="demoZIndex3" contenteditable spellcheck="false">
 .green {
     height: 100px;
+    opacity: 1;
 }
 .red {
     position: absolute;
@@ -417,6 +475,7 @@
 </code></pre>
 <pre><code class="liveCoding language-markup html" data-livecoding-id="demoZIndex3" contenteditable spellcheck="false">
 <div class="green" data-at="opacity">
+    I'm the parent.
     <div class="red" data-at="z-index">
     </div>
 </div>
@@ -429,10 +488,12 @@
 
     <section>
         <div class="content">
-            <h2>5. z-index</h2>
+            <h2>5. Le z-index</h2>
             <div class="demoExplanation">
                 <div class="important">
-                    <p>The render is independant between every stacking context:</p>
+                    <p>
+                        Le rendu est indépendant entre chaque Stacking Context :
+                    </p>
                     <ol>
                         <li>z-index < 0</li>
                         <li>Block elements</li>
@@ -441,14 +502,15 @@
                         <li>z-index > 0</li>
                     </ol>
                 </div>
-                <p>There is different way to create a stacking context:</p>
+                <p>
+                    Il y a plusieurs moyens de créer un Stacking Context : 
+                </p>
                 <ol>
                     <li>position: absolute/relative/fixed & z-index != auto</li>
                     <li>opacity < 1</li>
                     <li>transform != none</li>
-                    <li>transform-style: preserve-3d</li>
                     <li>filter != none</li>
-                    <li>clip-path, mask</li>
+                    <li>clip-path, mask, ...</li>
                 </ol>
             </div>
         </div>
@@ -457,16 +519,9 @@
 
     <section>
         <div class="content content--card">
-            <h1>And a lot more</h1>
-            <small class="classy">but</small>
-            <div>it will be for another time ;)</div>
-        </div>
-    </section>
-
-
-    <section>
-        <div class="content content--card">
-            <h1>Thanks you!</h1>
+            <h1>Merci !</h1>
+            <small class="classy">et</small>
+            <div>c'est encore mieux avec CSS3</div>
         </div>
     </section>
 
