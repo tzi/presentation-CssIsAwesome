@@ -18,33 +18,33 @@
     <section>
         <div class="content content--card">
             <h1>CSS is awesome</h1>
-            <small class="classy">and</small>
-            <div>often misunderstood</div>
+            <small class="classy">mais</small>
+            <div>souvent mal compris</div>
         </div>
     </section>
 
 
     <section>
         <div class="content">
-            <h2>1. Float elements</h2>
+            <h2>1. Les flottants</h2>
             <p class="demoDescription">
-                allows you to horizontally align elements.
+                permettent d'aligner deux éléments horizontalement
             </p>
             <div class="demo"> 
-                <div class="demoShow" id="demoFloat">
-                </div>              
+                <div class="demoShow" id="demoFloat"></div>              
                 <div class="demoCode"> 
 <pre><code class="liveCoding language-css css" data-livecoding-id="demoFloat" contenteditable spellcheck="false">
-.redElement {
+.red {
     float: none;
+    display: inline;
 }
 </code></pre>
 <pre><code class="liveCoding language-markup html" data-livecoding-id="demoFloat" contenteditable spellcheck="false">
-<span class="greenElement">
-    This is a first inline element.
+<span class="green">
+    Un élément inline
 </span>
-<span class="redElement">
-    And this is a second one. This one is very long, so it will take several lines.
+<span class="red">
+    Un autre élément inline, mais celui-ci contient plusieurs lignes
 </span>
 </code></pre>
                 </div>
@@ -55,19 +55,19 @@
 
     <section>
         <div class="content">
-            <h2>1. Float elements</h2>
+            <h2>1. Les flottants</h2>
             <div class="demoExplanation">
-                <p>They are not rendered like an inline or block element.</p>
+                <p>Ils ne sont rendus ni comme des éléments inline, ni comme des block.</p>
                 <p class="important">
-                    <span>A good approximation: </span>
-                    A floating element is like a block element which has its width that fit to its content.
+                    <span>Une bonne approximation: </span>
+                    Un élément flottant est comme un élément block, dont la largeur s'adapte à son contenu.
                 </p>
-                <p>How to know how your element will be rendered?</p>
+                <p>Comment savoir comment un élément va être rendu ?</p>
                 <ol>
                     <li>display: none</li>
-                    <li>position: absolute/fixed</li>
-                    <li>float: left/right</li>
-                    <li>display: *other values*</li>
+                    <li>position: absolute / fixed</li>
+                    <li>float: left / right</li>
+                    <li>display: *tout autre valeur*</li>
                 </ol>
             </div>
         </div>
@@ -76,26 +76,58 @@
 
     <section>
         <div class="content">
-            <h2>2. overflow: hidden</h2>
+            <h2>2. Le débordement</h2>
             <p class="demoDescription">
-                has no impact if there is no overflow.
+                ne permet pas d'aligner deux éléments horizontalement
+            </p>
+            <div class="demo">
+                <div class="demoShow" id="demoOverflow2">
+                </div>
+                <div class="demoCode"> 
+<pre><code class="liveCoding language-css css" data-livecoding-id="demoOverflow2" contenteditable spellcheck="false">
+.green {
+    float: left;
+    margin: 20px;
+}
+.red {
+    height: 100px;
+    overflow: visible;
+}
+</code></pre>
+<pre><code class="liveCoding language-markup html" data-livecoding-id="demoOverflow2" contenteditable spellcheck="false">
+<div class="green" data-at="float"> </div>
+<div class="red">
+    <span data-at="overflow"> </span>
+</div>
+</code></pre>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section>
+        <div class="content">
+            <h2>2. Le débordement</h2>
+            <p class="demoDescription">
+                ne permet pas d'aligner deux éléments horizontalement
             </p>
             <div class="demo"> 
                 <div class="demoShow" id="demoOverflow">
                 </div>              
                 <div class="demoCode"> 
 <pre><code class="liveCoding language-css css" data-livecoding-id="demoOverflow" contenteditable spellcheck="false">
-.greenElement {
+.green {
     float: left;
     margin: 20px;
 }
-.redElement {
+.red {
     overflow: visible;
 }
 </code></pre>
 <pre><code class="liveCoding language-markup html" data-livecoding-id="demoOverflow" contenteditable spellcheck="false">
-<div class="redElement" data-at="overflow">
-    <div class="greenElement" data-at="float">
+<div class="red" data-at="overflow">
+    <div class="green" data-at="float">
     </div>
 </div>
 </code></pre>
@@ -107,68 +139,33 @@
 
     <section>
         <div class="content">
-            <h2>2. overflow: hidden</h2>
+            <h2>2. Le débordement</h2>
             <p class="demoDescription">
-                has no impact if there is no overflow.
-            </p>
-            <div class="demo"> 
-                <div class="demoShow" id="demoOverflow2">
-                </div>              
-                <div class="demoCode"> 
-<pre><code class="liveCoding language-css css" data-livecoding-id="demoOverflow2" contenteditable spellcheck="false">
-.greenElement {
-    float: left;
-    margin: 20px;
-}
-.redElement {
-    overflow: visible;
-}
-</code></pre>
-<pre><code class="liveCoding language-markup html" data-livecoding-id="demoOverflow2" contenteditable spellcheck="false">
-<div class="greenElement" data-at="float">
-</div>
-<div class="redElement" data-at="overflow">
-    <div class="blueElement">
-        I take all the width available. <br>
-        If my text is too long I will continue bellow the floating elements.
-    </div>
-</div>
-</code></pre>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-    <section>
-        <div class="content">
-            <h2>2. overflow: hidden</h2>
-            <p class="demoDescription">
-                has no impact if there is no overflow.
+                ne permet pas d'aligner deux éléments horizontalement
             </p>
             <div class="demo"> 
                 <div class="demoShow" id="demoOverflow3">
                 </div>              
                 <div class="demoCode"> 
 <pre><code class="liveCoding language-css css" data-livecoding-id="demoOverflow3" contenteditable spellcheck="false">
-.greenElement {
+.green {
     float: left;
     width: 150px;
     height: 150px;
 }
-.redElement {
+.red {
     overflow: visible;
     margin-left: 200px;
 }
-.blueElement {
+.blue {
     clear: left;
 }
 </code></pre>
 <pre><code class="liveCoding language-markup html" data-livecoding-id="demoOverflow3" contenteditable spellcheck="false">
-<div class="greenElement" data-at="float">
+<div class="green" data-at="float">
 </div>
-<div class="redElement" data-at="overflow">
-    <div class="blueElement" data-at="clear">
+<div class="red" data-at="overflow">
+    <div class="blue" data-at="clear">
     </div>
 </div>
 </code></pre>
@@ -180,18 +177,18 @@
 
     <section>
         <div class="content">
-            <h2>2. overflow: hidden</h2>
+            <h2>2. Le débordement</h2>
             <div class="demoExplanation">
-                <p>It creates a BFC: Block formating context</p>
+                <p>peut créer des BFC: Block formating context</p>
                 <div class="important">
-                    <span>The properties of a BFC: </span>
+                    <span>Les propriétés d'une BFC: </span>
                     <ul>
-                        <li>Contains his children</li>
-                        <li>Does not wrap around floating elements</li>
-                        <li>Create a scope for clearing</li>
+                        <li>Il contient ses enfants</li>
+                        <li>Il ne s'enroule pas autour des flottants</li>
+                        <li>Il crée un nouveau périmètre pour le rétablissement du flux</li>
                     </ul>
                 </div>
-                <p>What elements create a BFC?</p>
+                <p>Comment on crée une BFC ?</p>
                 <ol>
                     <li>overflow: != visible</li>
                     <li>float: != none</li>
@@ -214,16 +211,16 @@
                 </div>              
                 <div class="demoCode"> 
 <pre><code class="liveCoding language-css css" data-livecoding-id="demoPourcentHeight" contenteditable spellcheck="false">
-.greenElement {
+.green {
     height: 200px;
 }
-.redElement {
+.red {
     height: 50%;
 }
 </code></pre>
 <pre><code class="liveCoding language-markup html" data-livecoding-id="demoPourcentHeight" contenteditable spellcheck="false">
-<div class="greenElement" data-at="height">
-    <div class="redElement" data-at="height">
+<div class="green" data-at="height">
+    <div class="red" data-at="height">
     </div>
 </div>
 </code></pre>
@@ -244,15 +241,15 @@
                 </div>              
                 <div class="demoCode"> 
 <pre><code class="liveCoding language-css css" data-livecoding-id="demoPourcentMargin" contenteditable spellcheck="false">
-.redElement {
+.red {
     width: 40%;
     margin-left: 0%;
     margin-top: 0%;
 }
 </code></pre>
 <pre><code class="liveCoding language-markup html" data-livecoding-id="demoPourcentMargin" contenteditable spellcheck="false">
-<div class="greenElement">
-    <div class="redElement" data-at="margin-left,margin-top">
+<div class="green">
+    <div class="red" data-at="margin-left,margin-top">
     </div>
 </div>
 </code></pre>
@@ -289,24 +286,24 @@
                 </div>              
                 <div class="demoCode"> 
 <pre><code class="liveCoding language-css css" data-livecoding-id="demoReorder" contenteditable spellcheck="false">
-.greenElement {
+.green {
     display: table-row;
 }
-.redElement {
+.red {
     display: table-row;
 }
-.blueElement {
+.blue {
     display: table-row;
 }
 </code></pre>
 <pre><code class="liveCoding language-markup html" data-livecoding-id="demoReorder" contenteditable spellcheck="false">
-<div class="greenElement">
+<div class="green">
     I'm 1st.
 </div>
-<div class="redElement">
+<div class="red">
     I'm 2sd.
 </div>
-<div class="blueElement">
+<div class="blue">
     I'm 3th.
 </div>
 </code></pre>
@@ -340,24 +337,24 @@
                 </div>              
                 <div class="demoCode"> 
 <pre><code class="liveCoding language-css css" data-livecoding-id="demoZIndex" contenteditable spellcheck="false">
-.greenElement {
+.green {
     position: absolute;
     z-index: 10;
 }
-.redElement {
+.red {
     position: relative;
     text-align: right;
 }
-.blueElement {
+.blue {
     position: absolute;
     z-index: 11;
 }
 </code></pre>
 <pre><code class="liveCoding language-markup html" data-livecoding-id="demoZIndex" contenteditable spellcheck="false">
-<div class="greenElement" data-at="z-index">
+<div class="green" data-at="z-index">
 </div>
-<div class="redElement" data-at="z-index">
-    <div class="blueElement" data-at="z-index">
+<div class="red" data-at="z-index">
+    <div class="blue" data-at="z-index">
     </div>
 </div>
 </code></pre>
@@ -378,18 +375,18 @@
                 </div>              
                 <div class="demoCode"> 
 <pre><code class="liveCoding language-css css" data-livecoding-id="demoZIndex2" contenteditable spellcheck="false">
-.greenElement {
+.green {
     height: 100px;
 }
-.redElement {
+.red {
     position: absolute;
     z-index: 10;
 }
 </code></pre>
 <pre><code class="liveCoding language-markup html" data-livecoding-id="demoZIndex2" contenteditable spellcheck="false">
-<div class="greenElement">
+<div class="green">
     I'm the parent.
-    <div class="redElement" data-at="z-index">
+    <div class="red" data-at="z-index">
     </div>
 </div>
 </code></pre>
@@ -410,17 +407,17 @@
                 </div>              
                 <div class="demoCode"> 
 <pre><code class="liveCoding language-css css" data-livecoding-id="demoZIndex3" contenteditable spellcheck="false">
-.greenElement {
+.green {
     height: 100px;
 }
-.redElement {
+.red {
     position: absolute;
     z-index: -1;
 }
 </code></pre>
 <pre><code class="liveCoding language-markup html" data-livecoding-id="demoZIndex3" contenteditable spellcheck="false">
-<div class="greenElement" data-at="opacity">
-    <div class="redElement" data-at="z-index">
+<div class="green" data-at="opacity">
+    <div class="red" data-at="z-index">
     </div>
 </div>
 </code></pre>
